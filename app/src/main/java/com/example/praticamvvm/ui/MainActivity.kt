@@ -2,6 +2,8 @@ package com.example.praticamvvm.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.example.praticamvvm.R
@@ -16,13 +18,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textView = findViewById<TextView>(R.id.textView)
+        val adviceBtn = findViewById<Button>(R.id.btnChangeAdvice)
+        val adviceTxt = findViewById<TextView>(R.id.textView)
 
-        textView.setOnClickListener {
+        adviceBtn.setOnClickListener {
             adviceViewModel.adviceList.observe(this) {
                 getAdvice()
                 it?.forEach {adviceModel ->
-                    textView.text = adviceModel.advice
+                    adviceTxt.text = adviceModel.advice
+                    Log.d("advice", adviceModel.advice)
                 }
             }
         }
@@ -33,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             adviceViewModel.getAdvice()
         }
     }
-
 }
 
 

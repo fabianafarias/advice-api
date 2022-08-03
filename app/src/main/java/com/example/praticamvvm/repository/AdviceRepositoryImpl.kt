@@ -11,13 +11,7 @@ class AdviceRepositoryImpl : AdviceRepository, KoinComponent {
     override suspend fun getAdvice(): AdviceStatus {
         val advices = service.getAdvice()
         if (advices.isSuccessful) {
-            advices.body()?.let {
-                it.slip?.forEach {
-                    it.advice
-                }
-
-            }
-
+            advices.body()?.slip?.advice
         }
         return AdviceStatus.Error()
     }

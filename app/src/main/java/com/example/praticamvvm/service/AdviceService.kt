@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface AdviceService {
 
-    @GET()
-    suspend fun getAdvice() : Response<AdviceResponse>
+    @GET("advice")
+    suspend fun getAdvice() : Response<AdviceResponse?>
 }

@@ -1,9 +1,9 @@
 package com.example.praticamvvm.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.praticamvvm.model.AdviceModel
 import com.example.praticamvvm.model.AdviceViewModel
 import com.example.praticamvvm.repository.AdviceRepository
 import com.example.praticamvvm.repository.AdviceStatus
@@ -14,8 +14,8 @@ class ViewModel : ViewModel(), KoinComponent {
 
     private val adviceRepository : AdviceRepository by inject()
 
-    private val _adviceList = MutableLiveData<List<AdviceViewModel>?>()
-    val adviceList: LiveData<List<AdviceViewModel>?> get() = _adviceList
+    private val _adviceList = MutableLiveData<List<AdviceViewModel>>()
+    val adviceList: LiveData<List<AdviceViewModel>> get() = _adviceList
 
     private val _adviceErrorList = MutableLiveData<Boolean>()
     val adviceErrorList: LiveData<Boolean> get() = _adviceErrorList

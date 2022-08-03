@@ -13,7 +13,7 @@ val adviceRetrofitModule = module {
     single<Retrofit> {
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.adviceslip.com/advice")
+            .baseUrl("https://api.adviceslip.com/")
             .build()
     }
 }

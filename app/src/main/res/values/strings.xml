@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">praticamvvm</string>
+    <string name="advice_text">If you find yourself distressed about something, ask yourself if it will still matter tomorrow or next week or next month.</string>
+    <string name="btn_text">Change advice</string>
 </resources>
