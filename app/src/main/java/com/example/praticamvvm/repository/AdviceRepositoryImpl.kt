@@ -1,6 +1,5 @@
 package com.example.praticamvvm.repository
 
-import android.util.Log
 import com.example.praticamvvm.service.AdviceService
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
