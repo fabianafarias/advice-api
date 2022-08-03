@@ -6,15 +6,22 @@ import org.koin.core.component.inject
 
 class AdviceRepositoryImpl : AdviceRepository, KoinComponent {
 
-    private val service : AdviceService by inject()
+    private val service: AdviceService by inject()
 
     override suspend fun getAdvice(): AdviceStatus {
         val advices = service.getAdvice()
-        if (advices.isSuccessful){
-            advices.body()?.slip.let {
-                return AdviceStatus.Success(it)
+        if (advices.isSuccessful) {
+            advices.body()?.let {
+                it.slip?.forEach {
+                    it.advice
+                }
+
             }
+
         }
         return AdviceStatus.Error()
     }
+
 }
+
+

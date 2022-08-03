@@ -1,6 +1,9 @@
 package com.example.praticamvvm.model
 
-data class AdviceModel(
-    val id: Int?,
+import com.google.gson.annotations.SerializedName
+
+class AdviceModel(
+    @SerializedName("advice")
     val advice: String
 )
+
