@@ -1,19 +1,28 @@
 package com.example.praticamvvm.repository
 
-import com.example.praticamvvm.service.AdviceService
+import android.util.Log
+import com.example.praticamvvm.AdviceApi.service.AdviceApi
+import com.example.praticamvvm.AdviceApi.service.AdviceApiStatus
+import com.example.praticamvvm.model.Advice
 import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
-class AdviceRepositoryImpl : AdviceRepository, KoinComponent {
+class AdviceRepositoryImpl(private val adviceApi: AdviceApi) : AdviceRepository, KoinComponent {
 
-    private val service: AdviceService by inject()
+    override suspend fun getAdvice(): AdviceRepositoryStatus {
+        when(val adviceApiStatus = adviceApi.getAdvice()){
+            is AdviceApiStatus.Error -> {
+                return AdviceRepositoryStatus.Error
+            }
+            is AdviceApiStatus.Success -> {
+                adviceApiStatus.adviceData.let {
+                    val adviceData: Advice = it.convertToAdvice()
+                    Log.i("advice", "$adviceData")
 
-    override suspend fun getAdvice(): AdviceStatus {
-        val advices = service.getAdvice()
-        if (advices.isSuccessful) {
-            advices.body()?.slip?.advice
+                    return AdviceRepositoryStatus.Success(it)
+                }
+            }
         }
-        return AdviceStatus.Error()
+
     }
 
 }

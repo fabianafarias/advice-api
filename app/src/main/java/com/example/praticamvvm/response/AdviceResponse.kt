@@ -1,7 +1,9 @@
 package com.example.praticamvvm.response
 
-import com.example.praticamvvm.model.AdviceModel
+import com.example.praticamvvm.model.AdviceData
+import com.google.gson.annotations.SerializedName
 
-public data class AdviceResponse(
-    public val slip: AdviceModel
+data class AdviceResponse(
+    @SerializedName("slip")
+    val slip: AdviceData
 )
