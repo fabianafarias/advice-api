@@ -1,56 +1,46 @@
 package com.example.praticamvvm.ui.activity
 
 import android.os.Bundle
-import android.util.Log
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.praticamvvm.R
-import com.example.praticamvvm.repository.AdviceRepository
-import com.example.praticamvvm.repository.AdviceRepositoryStatus
 import com.example.praticamvvm.ui.viewmodel.AdviceViewModel
 import com.example.praticamvvm.ui.viewmodel.AdviceViewModelStatus
-import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
-    private val adviceViewModel : AdviceViewModel by inject()
-//    private val repository : AdviceRepository by inject()
+    private val adviceViewModel: AdviceViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        observeViewModel()
-        adviceViewModel.adviceUpdate()
+        val textView: TextView = this.findViewById(R.id.adviceText)
+        val btn: Button = this.findViewById(R.id.btnChangeAdvice)
 
-//       lifecycleScope.launch {
-//           val result = repository.getAdvice()
-//           when(result){
-//               AdviceRepositoryStatus.Error -> {}
-//               is AdviceRepositoryStatus.Success -> {}
-//           }
-//       }
-
-
-
+        btn.setOnClickListener {
+            observeViewModel(textView)
+            adviceViewModel.adviceUpdate()
+        }
     }
 
-    fun observeViewModel(){
+    fun observeViewModel(textView: TextView) {
         adviceViewModel.adviceList.observe(this) {
-            when(it){
+            when (it) {
                 is AdviceViewModelStatus.Success -> {
                     val advice = it.adviceData
-                    Log.d("adviceViewModel","$advice")
+                    textView.text = advice.advice
+//                    Log.d("adviceViewModel", "$advice")
                 }
                 is AdviceViewModelStatus.Error -> {
-                    Log.d("adviceViewModel","Error")
+                    textView.text = "Deu ruim!"
+//                    Log.d("adviceViewModel", "Error")
                 }
             }
         }
     }
-
-
 }
 
 
