@@ -19,14 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         observeViewModel()
-        getAdvice()
+
+
+
     }
 
-    fun getAdvice(){
-        lifecycleScope.launch {
-            adviceViewModel.getAdvice()
-        }
-    }
+
 
     fun observeViewModel(){
         adviceViewModel.adviceList.observe(this) {
@@ -38,8 +36,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 
 }
 

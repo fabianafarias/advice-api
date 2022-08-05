@@ -1,10 +1,8 @@
 package com.example.praticamvvm.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.praticamvvm.model.Advice
 import com.example.praticamvvm.repository.AdviceRepositoryImpl
 import com.example.praticamvvm.repository.AdviceRepositoryStatus
 import org.koin.core.component.KoinComponent
