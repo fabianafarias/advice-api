@@ -4,6 +4,8 @@ import com.example.praticamvvm.AdviceApi.service.AdviceApi
 import com.example.praticamvvm.AdviceApi.service.AdviceService
 import com.example.praticamvvm.repository.AdviceRepository
 import com.example.praticamvvm.repository.AdviceRepositoryImpl
+import com.example.praticamvvm.ui.viewmodel.AdviceViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,20 +20,23 @@ val adviceRetrofitModule = module {
 }
 
 val adviceServiceModule = module {
-    single{
+    single {
         get<Retrofit>().create(AdviceService::class.java)
     }
 }
 
 val adviceApiModule = module {
-    single<AdviceApi>{
+    single<AdviceApi> {
         AdviceApi(get<AdviceService>())
     }
 }
 
 val adviceRepositoryModule = module {
-    single<AdviceRepository>{
+    single<AdviceRepository> {
         AdviceRepositoryImpl(get<AdviceApi>())
     }
 }
 
+val adviceViewModelModule = module {
+   viewModel { AdviceViewModel() }
+}

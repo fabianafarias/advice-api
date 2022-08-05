@@ -26,11 +26,8 @@ class AdviceViewModel : ViewModel(), KoinComponent {
                 return AdviceViewModelStatus.Error
             }
             is AdviceRepositoryStatus.Success -> {
-                adviceRepositoryStatus.adviceData.let {
-                    val adviceData: Advice = it.convertToAdvice()
-                    Log.i("adviceViewModel", "$adviceData")
-
-                    return AdviceViewModelStatus.Success(it)
+                adviceRepositoryStatus.adviceData.let {adviceData ->
+                    return AdviceViewModelStatus.Success(adviceData)
                 }
             }
         }
