@@ -15,7 +15,8 @@ class AdviceApplication  : Application() {
                     adviceRetrofitModule,
                     adviceServiceModule,
                     adviceApiModule,
-                    adviceRepositoryModule
+                    adviceRepositoryModule,
+                    adviceViewModelModule
                 )
             )
         }
