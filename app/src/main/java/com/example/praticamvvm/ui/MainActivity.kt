@@ -1,12 +1,10 @@
-package com.example.praticamvvm.ui.activity
+package com.example.praticamvvm.ui
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.praticamvvm.R
-import com.example.praticamvvm.ui.viewmodel.AdviceViewModel
-import com.example.praticamvvm.ui.viewmodel.AdviceViewModelStatus
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
@@ -29,12 +27,12 @@ class MainActivity : AppCompatActivity() {
     fun observeViewModel(textView: TextView) {
         adviceViewModel.adviceList.observe(this) {
             when (it) {
-                is AdviceViewModelStatus.Success -> {
-                    val advice = it.adviceData
+                is AdviceViewModelResult.Success -> {
+                    val advice = it.adviceDataDTO
                     textView.text = advice.advice
 //                    Log.d("adviceViewModel", "$advice")
                 }
-                is AdviceViewModelStatus.Error -> {
+                is AdviceViewModelResult.Error -> {
                     textView.text = "Deu ruim!"
 //                    Log.d("adviceViewModel", "Error")
                 }
