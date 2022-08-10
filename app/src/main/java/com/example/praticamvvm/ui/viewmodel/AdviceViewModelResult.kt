@@ -1,4 +1,4 @@
-package com.example.praticamvvm.ui
+package com.example.praticamvvm.ui.viewmodel
 
 import com.example.praticamvvm.model.remote.dto.AdviceDataDTO
 

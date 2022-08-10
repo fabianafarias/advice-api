@@ -1,4 +1,4 @@
-package com.example.praticamvvm
+package com.example.praticamvvm.di
 
 import android.app.Application
 import com.example.praticamvvm.di.*

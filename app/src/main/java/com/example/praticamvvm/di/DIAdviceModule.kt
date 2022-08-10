@@ -4,7 +4,7 @@ import com.example.praticamvvm.model.remote.service.AdviceApi
 import com.example.praticamvvm.model.remote.service.AdviceService
 import com.example.praticamvvm.model.repository.AdviceRepository
 import com.example.praticamvvm.model.repository.AdviceRepositoryImpl
-import com.example.praticamvvm.ui.AdviceViewModel
+import com.example.praticamvvm.ui.viewmodel.AdviceViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit

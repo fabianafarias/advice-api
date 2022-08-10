@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreeFragment">
+
+    <fragment
+        android:id="@+id/splashScreeFragment"
+        android:name="com.example.praticamvvm.ui.fragment.SplashScreeFragment"
+        android:label="SplashScreeFragment"
+        tools:layout="@layout/splash_screen_fragment">
+        <action
+            android:id="@+id/action_splashScreeFragment_to_adviceFragment"
+            app:destination="@id/adviceFragment"
+            app:popUpTo="@id/splashScreeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adviceFragment"
+        android:name="com.example.praticamvvm.ui.fragment.AdviceFragment"
+        android:label="AdviceFragment"
+        tools:layout="@layout/advice_fragment" />
+
+
+</navigation>

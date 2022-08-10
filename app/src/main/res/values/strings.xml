@@ -3,4 +3,5 @@
     <string name="advice_text">If you find yourself distressed about something, ask yourself if it will still matter tomorrow or next week or next month.</string>
     <string name="btn_text">Ask an advice</string>
     <string name="tip">Click above and change the advice</string>
+    <string name="message_error">Deu ruim!</string>
 </resources>

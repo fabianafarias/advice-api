@@ -1,4 +1,4 @@
-package com.example.praticamvvm.ui
+package com.example.praticamvvm.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
